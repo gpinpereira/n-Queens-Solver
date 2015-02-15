@@ -1,12 +1,9 @@
 #Local Search
 
 
-
+import sys as sys
 import random as rd
-import itertools as it
 
-pop5 = range(6)
-pop4 = range(20)
 
 def testSolution(sol):
     isSolution = True
@@ -23,7 +20,7 @@ def testSolution(sol):
     else:
         return 0,sol," is not a solution!"
 
-def iterations(n,sol):
+def iterations(sol,n):
 
     for j in range(n):
         #print testSolution(sol)
@@ -31,7 +28,11 @@ def iterations(n,sol):
             rd.shuffle(sol)
         else:
             return j,sol
-    return "End of iterations"
+    return "No solution found in ",n," iterations"
 
-print iterations(200,pop5)
-print iterations(40000000,pop4)
+n = int(sys.argv[1])
+it = int(sys.argv[2])
+
+st = range(n)
+
+print iterations(st,it)
